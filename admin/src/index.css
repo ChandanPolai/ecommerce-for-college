@@ -3,19 +3,67 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-admin-black: #111111;
+  --color-admin-gold: #c5a880;
+  --color-admin-gold-light: #fbf8f3;
+  --color-admin-border: #e4e4e7;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 * {
-  font-family: Outfit;
+  font-family: 'Outfit', sans-serif;
+  transition: var(--transition-smooth);
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #1a1a1a;
 }
 
 select,
 input,
 textarea {
-  border: 1px solid #c2c2c2;
-  outline-color: #c586a5;
-  border-radius: 4px;
+  border: 1px solid var(--color-admin-border);
+  padding: 10px 14px;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+  border-color: var(--color-admin-gold);
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.15);
 }
 
 .active {
-  background-color: #ffebf5;
-  border-color: #c586a5;
+  background-color: var(--color-admin-gold-light);
+  border-color: var(--color-admin-gold) !important;
+  color: var(--color-admin-black) !important;
+  font-weight: 600;
+}
+
+/* Beautiful custom cards */
+.admin-card {
+  background: #ffffff;
+  border: 1px solid var(--color-admin-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.admin-btn {
+  background-color: var(--color-admin-black);
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.admin-btn:hover {
+  background-color: #2b2b2b;
+  transform: translateY(-1px);
 }

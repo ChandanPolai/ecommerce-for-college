@@ -3,13 +3,21 @@ import { assets } from "../assets/assets";
 
 const Navbar = ({ setToken }) => {
   return (
-    <div className="flex items-center py-2 px-[4%] justify-between">
-      <img className="w-[max(10%,80px)]" src={assets.logo} alt="logo" />
+    <div className="flex items-center py-4 px-[6%] justify-between sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
+      <div className="flex items-center gap-2 group">
+        <span className="prata-regular text-xl font-bold tracking-[0.18em] text-gray-900">
+          AURAWEAR
+        </span>
+        <span className="w-1.5 h-1.5 rounded-full bg-[#c5a880] mb-0.5"></span>
+        <span className="hidden sm:inline-block bg-gray-50 border border-gray-200 text-gray-500 text-[9px] font-bold tracking-widest px-2.5 py-1 rounded-md uppercase ml-2">
+          Management Suite
+        </span>
+      </div>
       <button
         onClick={() => setToken("")}
-        className="bg-gray-600 text-white px-5 py-2 sm:px-7 sm:py-2 rounded-full text-xs sm:text-sm"
+        className="bg-black hover:bg-[#c5a880] text-white px-5 py-2.5 rounded-xl text-xs font-bold tracking-widest transition-colors duration-300 shadow-sm"
       >
-        Logout
+        LOGOUT
       </button>
     </div>
   );

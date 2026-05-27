@@ -62,21 +62,22 @@ const Add = ({ token }) => {
   };
 
   return (
-    <div>
-      <form
-        onSubmit={onSubmitHandler}
-        className="flex flex-col w-full items-start gap-3"
-      >
-        <div>
-          <p className="mb-2">Upload Image</p>
+    <div className="admin-card p-6 md:p-10">
+      <h3 className="text-xl font-bold text-gray-900 mb-8">Add New Product</h3>
 
-          <div className="flex gap-2">
-            <label htmlFor="image1">
-              <img
-                className="w-20"
-                src={!image1 ? assets.upload_area : URL.createObjectURL(image1)}
-                alt="upload_area"
-              />
+      <form onSubmit={onSubmitHandler} className="flex flex-col w-full items-start gap-6">
+        <div className="w-full">
+          <p className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">Upload Product Images</p>
+
+          <div className="flex flex-wrap gap-4">
+            <label htmlFor="image1" className="cursor-pointer">
+              <div className="w-24 h-28 border border-dashed border-gray-300 rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center hover:border-[#c5a880] transition-colors">
+                <img
+                  className="w-full h-full object-cover"
+                  src={!image1 ? assets.upload_area : URL.createObjectURL(image1)}
+                  alt="upload_area"
+                />
+              </div>
               <input
                 onChange={(e) => setImage1(e.target.files[0])}
                 type="file"
@@ -84,12 +85,14 @@ const Add = ({ token }) => {
                 hidden
               />
             </label>
-            <label htmlFor="image2">
-              <img
-                className="w-20"
-                src={!image2 ? assets.upload_area : URL.createObjectURL(image2)}
-                alt="upload_area"
-              />
+            <label htmlFor="image2" className="cursor-pointer">
+              <div className="w-24 h-28 border border-dashed border-gray-300 rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center hover:border-[#c5a880] transition-colors">
+                <img
+                  className="w-full h-full object-cover"
+                  src={!image2 ? assets.upload_area : URL.createObjectURL(image2)}
+                  alt="upload_area"
+                />
+              </div>
               <input
                 onChange={(e) => setImage2(e.target.files[0])}
                 type="file"
@@ -97,12 +100,14 @@ const Add = ({ token }) => {
                 hidden
               />
             </label>
-            <label htmlFor="image3">
-              <img
-                className="w-20"
-                src={!image3 ? assets.upload_area : URL.createObjectURL(image3)}
-                alt="upload_area"
-              />
+            <label htmlFor="image3" className="cursor-pointer">
+              <div className="w-24 h-28 border border-dashed border-gray-300 rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center hover:border-[#c5a880] transition-colors">
+                <img
+                  className="w-full h-full object-cover"
+                  src={!image3 ? assets.upload_area : URL.createObjectURL(image3)}
+                  alt="upload_area"
+                />
+              </div>
               <input
                 onChange={(e) => setImage3(e.target.files[0])}
                 type="file"
@@ -110,12 +115,14 @@ const Add = ({ token }) => {
                 hidden
               />
             </label>
-            <label htmlFor="image4">
-              <img
-                className="w-20"
-                src={!image4 ? assets.upload_area : URL.createObjectURL(image4)}
-                alt="upload_area"
-              />
+            <label htmlFor="image4" className="cursor-pointer">
+              <div className="w-24 h-28 border border-dashed border-gray-300 rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center hover:border-[#c5a880] transition-colors">
+                <img
+                  className="w-full h-full object-cover"
+                  src={!image4 ? assets.upload_area : URL.createObjectURL(image4)}
+                  alt="upload_area"
+                />
+              </div>
               <input
                 onChange={(e) => setImage4(e.target.files[0])}
                 type="file"
@@ -127,35 +134,34 @@ const Add = ({ token }) => {
         </div>
 
         <div className="w-full">
-          <p className="mb-2">Product name</p>
+          <p className="text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Product Name</p>
           <input
             onChange={(e) => setName(e.target.value)}
             value={name}
-            className="w-full max-w-[500px] px-3 py-2"
+            className="w-full max-w-[600px]"
             type="text"
-            placeholder="Type here"
+            placeholder="e.g. Premium Heavyweight Chore Coat"
             required
           />
         </div>
 
         <div className="w-full">
-          <p className="mb-2">Product description</p>
+          <p className="text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Product Description</p>
           <textarea
             onChange={(e) => setDescription(e.target.value)}
             value={description}
-            className="w-full max-w-[500px] px-3 py-2"
-            type="text"
-            placeholder="Write content here"
+            className="w-full max-w-[600px] min-h-[120px] resize-y"
+            placeholder="Describe the fabric quality, styling details, sizes and fits..."
             required
           />
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-2 w-full sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-[600px]">
           <div>
-            <p className="mb-2">Product category</p>
+            <p className="text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Category</p>
             <select
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-3 py-2"
+              className="w-full cursor-pointer"
             >
               <option value="Men">Men</option>
               <option value="Women">Women</option>
@@ -164,10 +170,10 @@ const Add = ({ token }) => {
           </div>
 
           <div>
-            <p className="mb-2">Sub category</p>
+            <p className="text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Sub Category</p>
             <select
               onChange={(e) => setSubCategory(e.target.value)}
-              className="w-full px-3 py-2"
+              className="w-full cursor-pointer"
             >
               <option value="Topwear">Topwear</option>
               <option value="Bottomwear">Bottomwear</option>
@@ -176,126 +182,61 @@ const Add = ({ token }) => {
           </div>
 
           <div>
-            <p className="mb-2">Product Price</p>
+            <p className="text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Price (INR)</p>
             <input
               onChange={(e) => setPrice(e.target.value)}
               value={price}
-              className="w-full px-3 py-2 sm:w-[120px]"
+              className="w-full"
               type="Number"
-              placeholder="25"
+              placeholder="1299"
+              required
             />
           </div>
         </div>
 
-        <div>
-          <p className="mb-2">Product Sizes</p>
-          <div className="flex gap-3">
-            <div
-              onClick={() =>
-                setSizes((prev) =>
-                  prev.includes("S")
-                    ? prev.filter((item) => item !== "S")
-                    : [...prev, "S"]
-                )
-              }
-            >
-              <p
-                className={`${
-                  sizes.includes("S") ? "bg-pink-100" : "bg-slate-200"
-                } px-3 py-1 cursor-pointer`}
-              >
-                S
-              </p>
-            </div>
-
-            <div
-              onClick={() =>
-                setSizes((prev) =>
-                  prev.includes("M")
-                    ? prev.filter((item) => item !== "M")
-                    : [...prev, "M"]
-                )
-              }
-            >
-              <p
-                className={`${
-                  sizes.includes("M") ? "bg-pink-100" : "bg-slate-200"
-                } px-3 py-1 cursor-pointer`}
-              >
-                M
-              </p>
-            </div>
-
-            <div
-              onClick={() =>
-                setSizes((prev) =>
-                  prev.includes("L")
-                    ? prev.filter((item) => item !== "L")
-                    : [...prev, "L"]
-                )
-              }
-            >
-              <p
-                className={`${
-                  sizes.includes("L") ? "bg-pink-100" : "bg-slate-200"
-                } px-3 py-1 cursor-pointer`}
-              >
-                L
-              </p>
-            </div>
-
-            <div
-              onClick={() =>
-                setSizes((prev) =>
-                  prev.includes("XL")
-                    ? prev.filter((item) => item !== "XL")
-                    : [...prev, "XL"]
-                )
-              }
-            >
-              <p
-                className={`${
-                  sizes.includes("XL") ? "bg-pink-100" : "bg-slate-200"
-                } px-3 py-1 cursor-pointer`}
-              >
-                XL
-              </p>
-            </div>
-
-            <div
-              onClick={() =>
-                setSizes((prev) =>
-                  prev.includes("XXL")
-                    ? prev.filter((item) => item !== "XXL")
-                    : [...prev, "XXL"]
-                )
-              }
-            >
-              <p
-                className={`${
-                  sizes.includes("XXL") ? "bg-pink-100" : "bg-slate-200"
-                } px-3 py-1 cursor-pointer`}
-              >
-                XXL
-              </p>
-            </div>
+        <div className="w-full">
+          <p className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">Product Sizes</p>
+          <div className="flex flex-wrap gap-2.5">
+            {["S", "M", "L", "XL", "XXL"].map((size) => {
+              const isSelected = sizes.includes(size);
+              return (
+                <div
+                  key={size}
+                  onClick={() =>
+                    setSizes((prev) =>
+                      prev.includes(size)
+                        ? prev.filter((item) => item !== size)
+                        : [...prev, size]
+                    )
+                  }
+                  className={`w-12 h-12 flex items-center justify-center font-bold text-sm rounded-xl cursor-pointer border transition-all duration-300 ${
+                    isSelected
+                      ? "bg-[#c5a880]/15 border-[#c5a880] text-[#111111]"
+                      : "bg-white border-gray-200 text-gray-500 hover:border-gray-300"
+                  }`}
+                >
+                  {size}
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        <div className="flex gap-2 mt-2">
+        <div className="flex items-center gap-3 py-2 cursor-pointer select-none">
           <input
             onChange={() => setBestseller((prev) => !prev)}
             checked={bestseller}
             type="checkbox"
             id="bestseller"
+            className="w-5 h-5 rounded-md border-gray-300 text-[#c5a880] focus:ring-[#c5a880] cursor-pointer"
           />
-          <label className="cursor-pointer" htmlFor="bestseller">
-            Add to bestseller
+          <label className="text-sm font-semibold text-gray-700 cursor-pointer" htmlFor="bestseller">
+            Mark as Bestseller selection
           </label>
         </div>
 
-        <button className="w-28 py-3 mt-4 bg-black text-white" type="submit">
-          ADD
+        <button className="admin-btn w-full sm:w-40 py-3.5 mt-4 uppercase tracking-widest text-xs font-extrabold" type="submit">
+          ADD PRODUCT
         </button>
       </form>
     </div>

@@ -4,12 +4,24 @@
 @tailwind components;
 @tailwind utilities;
 
-a.active hr {
-  display: block;
+:root {
+  --color-luxury-black: #111111;
+  --color-luxury-dark: #1e1e1e;
+  --color-luxury-gold: #c5a880;
+  --color-luxury-gold-hover: #b0936b;
+  --color-luxury-bg: #fafafa;
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background-color: var(--color-luxury-bg);
+  color: var(--color-luxury-black);
+  overflow-x: hidden;
 }
 
 * {
-  font-family: Outfit;
+  font-family: 'Outfit', sans-serif;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 }
 
 .prata-regular {
@@ -18,13 +30,79 @@ a.active hr {
   font-style: normal;
 }
 
+/* Scrollbar customization */
 ::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-luxury-gold);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-luxury-gold-hover);
+}
+
+/* Nav styles */
+a.active hr {
+  display: block;
+}
+
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-luxury-black);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.nav-link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Premium Custom Utilities */
+.premium-shadow {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+}
+
+.premium-card {
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  transition: var(--transition-smooth);
+}
+
+.premium-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-luxury-gold);
+  box-shadow: 0 30px 60px rgba(197, 168, 128, 0.1);
+}
+
+.glassmorphic {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(234, 234, 234, 0.5);
 }
 
 @media (max-width: 640px) {
   a.active {
-    background-color: black;
+    background-color: var(--color-luxury-black);
     color: white;
   }
 }
